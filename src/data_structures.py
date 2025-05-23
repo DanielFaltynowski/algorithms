@@ -1,5 +1,5 @@
 class Stack:
-    def __init__(self, capacity = 64):
+    def __init__(self, capacity: int = 64):
         self.__stack = [None] * capacity
         self.__top = 0
         self.__capacity = capacity
@@ -49,7 +49,7 @@ class Stack:
 
 
 class Queue:
-    def __init__(self, capacity = 64):
+    def __init__(self, capacity: int = 64):
         self.__queue = [None] * capacity
         self.__front = 0
         self.__back= 0
@@ -130,8 +130,8 @@ class LinkedNode:
 
 
 class LinkedList:
-    def __init__(self):
-        self.__head = None
+    def __init__(self, head: LinkedNode = None):
+        self.__head = head
     
     def get(self):
         return self.__head.get_value()
@@ -153,6 +153,24 @@ class LinkedList:
             current = current.get_next()
         return counter
     
+    def search(self, elem):
+        current = self.__head
+        while current is not None:
+            if current.get_value() == elem:
+                return True
+            else: current = current.get_next()
+        return False
+    
+    def get_by_index(self, i: int):
+        if i >= self.size():
+            print('Index out of range!')
+        else:
+            current = self.__head
+            while current is not None and i > 0:
+                current = current.get_next()
+                i = i - 1
+            return current.get_value()
+    
     def __str__(self):
         response = '\n'
         if self.__head is None:
@@ -170,5 +188,15 @@ class LinkedList:
 
 if __name__ == '__main__':
     ll = LinkedList()
+    ll.add(3)
+    ll.add(4)
+    ll.add(5)
+    ll.add(6)
     print(ll)
-    print(ll.size())
+    print(ll.search(7))
+    print(ll.search(6))
+    print(ll.search(5))
+    print(ll.search(4))
+    print(ll.search(3))
+    print(ll.search(2))
+    print(ll.get_by_index(4))
