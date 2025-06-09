@@ -42,9 +42,6 @@ def newton_raphson_method(f, x_0, epsilon=0.0001):
 
 
 if __name__ == '__main__':
-    def f(x):
-        return (x ** 2) - 49
-
-    print(f'Approximation Method: {approximation_method(f, 0, 10)}')
-    print(f'Bisection Method: {bisection_method(f, 0, 10)}')
-    print(f'Newton-Raphson Method: {newton_raphson_method(f, 1)}')
+    print(f'Approximation Method: {approximation_method(lambda x: (x ** 2) - 49, 0, 10)}')
+    print(f'Bisection Method: {bisection_method(lambda x: (x ** 2) - 49, 0, 10)}')
+    print(f'Newton-Raphson Method: {newton_raphson_method(lambda x: (x ** 2) - 49, 1)}')
