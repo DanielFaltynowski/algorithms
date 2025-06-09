@@ -1,3 +1,3 @@
-# Algorithms 🧮
+# Algorithms Overview 🧮
 
 # hello

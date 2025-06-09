@@ -39,3 +39,12 @@ def newton_raphson_method(f, x_0, epsilon=0.0001):
     while f(ans) > epsilon or f(ans) < -epsilon:
         ans = ans - (f(ans) / derivative(f, ans))
     return ans
+
+
+if __name__ == '__main__':
+    def f(x):
+        return (x ** 2) - 49
+
+    print(f'Approximation Method: {approximation_method(f, 0, 10)}')
+    print(f'Bisection Method: {bisection_method(f, 0, 10)}')
+    print(f'Newton-Raphson Method: {newton_raphson_method(f, 1)}')
