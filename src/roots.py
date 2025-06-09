@@ -1,3 +1,5 @@
+from calculus import derivative
+
 def approximation_method(f, a, b, epsilon=0.01):
     if epsilon < 0:
         epsilon = -epsilon
@@ -29,10 +31,6 @@ def bisection_method(f, a, b, epsilon=0.0001):
                 a = ans
         ans = (a + b) / 2
     return ans
-
-
-def derivative(f, x, h=0.0001):
-        return (f(x + h) - f(x)) / h
 
 def newton_raphson_method(f, x_0, epsilon=0.0001):
     if epsilon < 0:
